@@ -26,9 +26,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     block.cpp \
+    ball.cpp \
+    map.cpp
 
 HEADERS  += mainwindow.h \
     block.h \
-    ball.h
+    ball.h \
+    map.h
 
 FORMS    += mainwindow.ui

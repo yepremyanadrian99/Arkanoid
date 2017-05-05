@@ -4,10 +4,10 @@
 #include <QRect>
 #include <QColor>
 
-class block
+class Block
 {
 public:
-    block(int x = 0, int y = 0, int w = 0, int h = 0)
+    Block(int x = 0, int y = 0, int w = 0, int h = 0)
         :x(x), y(y), width(w), height(h)
     {
     }
