@@ -10,27 +10,14 @@ class Ball
 public:
   Ball(int x, int y)
     :x(x),y(y)
-  {
-  }
+  {}
 
   Ball(int x, int y, int size);
 
 public:
-    int get_x()
-    {
-        return x;
-    }
-
-    int get_y()
-    {
-        return y;
-    }
-
-    QRect get_rect()
-    {
-        return b_rect;
-    }
-
+    int get_x();
+    int get_y();
+    QRect get_rect();
 
 private:
     int x, y;

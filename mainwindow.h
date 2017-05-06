@@ -6,6 +6,8 @@
 #include <QPaintEvent>
 #include <QPoint>
 #include <QKeyEvent>
+#include <QMouseEvent>
+
 #include "ball.h"
 #include "block.h"
 #include "board.h"
@@ -22,7 +24,7 @@ public:
     void paintEvent(QPaintEvent*);
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(QWidget* parent = 0);
     ~MainWindow();
 
 public:
@@ -30,8 +32,8 @@ public:
     Block* block;
     Board* board;
 
-void keyPressEvent(QKeyEvent* e);
-
+protected:
+    void keyPressEvent(QKeyEvent* e);
 
 private:
     Ui::MainWindow *ui;

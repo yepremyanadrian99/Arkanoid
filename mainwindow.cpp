@@ -7,9 +7,10 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    ball =new Ball(20,20,30);
-    block = new Block(0,0,6,8);
-    board = new Board(QRect(QPoint(100,80), QSize(80,20)));
+    QWidget::setMouseTracking(true);
+    ball = new Ball(20, 20, 30);
+    block = new Block(0, 0, 6, 8);
+    board = new Board(QRect(QPoint(160, 280), QSize(80, 20)));
     update();
 }
 
@@ -17,7 +18,7 @@ void MainWindow::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
     p.setPen(Qt::blue);
-    p.drawRect(board->get_rect());
+    p.fillRect(board->get_rect(), Qt::SolidPattern);
 }
 
 MainWindow::~MainWindow()
@@ -25,11 +26,11 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::keyPressEvent(QKeyEvent *e)
+void MainWindow::keyPressEvent(QKeyEvent* e)
 {
-    if(e->key() == Qt::RightArrow)
-    {
-        board->moveRight();
-    }
+    if(e->key() == Qt::Key_Left)
+        board->move_left();
+    else if(e->key() == Qt::Key_Right)
+        board->move_right();
     update();
 }
