@@ -1,22 +1,35 @@
 #ifndef BOARD_H
 #define BOARD_H
-
-#include <iostream>
-
-class Board
-{
+#include <QRect>
+class Board{
 public:
-    Board(int x = 0, int y = 0, int width = 0, int height = 0)
-        : x(x), y(y), width(width), height(height)
-    {}
+    Board(QRect rect)
+        :rect(rect)
+    {
+        size = rect.size();
+    }
+    QRect get_rect()
+    {
+        return rect;
+    }
 
-    std::pair<int, int> get_coords() const;
+    void set_x(int x)
+    {
+        this->x = x;
+        rect = QRect(QPoint(x, y), size);
+    }
 
+    void moveRight()
+    {
+        ++x;
+        rect = QRect(QPoint(x, y), size);
+    }
 
 
 private:
-    int x, y;
-    int width, height;
+    int x,y;
+    QRect rect;
+    QSize size;
 };
 
 #endif // BOARD_H

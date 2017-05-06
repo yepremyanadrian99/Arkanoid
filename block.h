@@ -7,7 +7,7 @@
 class Block
 {
 public:
-    Block(int x = 0, int y = 0, int w = 0, int h = 0)
+    Block(int x = 0, int y = 0, int w = 10, int h = 20)
         :x(x), y(y), width(w), height(h)
     {
     }

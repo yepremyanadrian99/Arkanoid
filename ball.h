@@ -7,6 +7,7 @@
 
 class Ball
 {
+public:
   Ball(int x, int y)
     :x(x),y(y)
   {
@@ -23,6 +24,11 @@ public:
     int get_y()
     {
         return y;
+    }
+
+    QRect get_rect()
+    {
+        return b_rect;
     }
 
 
