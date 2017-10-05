@@ -1,11 +1,21 @@
 #include "block.h"
 
-std::pair<int, int> Block::get_coords() const
-{
-    return std::make_pair(Block::x, Block::y);
-}
-
 bool Block::is_destroyed() const
 {
-   return Block::crashed;
+   return destroyed;
+}
+
+QRect Block::get_rect() const
+{
+    return rect_;
+}
+
+QColor Block::get_color() const
+{
+    return color_;
+}
+
+void Block::destroy()
+{
+    destroyed = true;
 }

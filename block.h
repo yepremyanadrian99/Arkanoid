@@ -1,5 +1,6 @@
 #ifndef Block_H
 #define Block_H
+
 #include <iostream>
 #include <QRect>
 #include <QColor>
@@ -7,23 +8,19 @@
 class Block
 {
 public:
-    Block(int x = 0, int y = 0, int w = 10, int h = 20)
-        :x(x), y(y), width(w), height(h)
-    {
-    }
+    Block(QRect rect, QColor color)
+        :rect_(rect), color_(color)
+    {}
 
-    std::pair<int, int> get_coords() const;
-
+    QRect get_rect() const;
+    QColor get_color() const;
     bool is_destroyed() const;
-
-public:
-    QRect block_rect;
-
+    void destroy();
 
 private:
-    int x, y, width, height;
-    bool crashed = false;
-    QColor block_color;
+    QRect rect_;
+    QColor color_;
+    bool destroyed = false;
 };
 
 #endif // Block_H

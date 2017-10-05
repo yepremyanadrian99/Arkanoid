@@ -1,13 +1,20 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <QRect>
+#include <QColor>
 
 class Board{
 
 public:
-    Board(QRect);
+    Board(QRect rect, QColor color)
+        :rect_(rect), color_(color)
+    {}
 
-    QRect get_rect();
+    Board()
+    {}
+
+    QRect get_rect() const;
+    QColor get_color() const;
 
     void set_pos(int);
 
@@ -17,9 +24,9 @@ public:
     void move_left();
 
 private:
-    int x, y;
-    QRect rect;
-    QSize size;
+    QRect rect_;
+    QColor color_;
+    int dx = 10;
 };
 
 #endif // BOARD_H

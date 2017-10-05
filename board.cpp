@@ -1,28 +1,28 @@
 #include "board.h"
 
-Board::Board(QRect rect)
+QRect Board::get_rect() const
 {
-    this->rect = rect;
-    this->size = rect.size();
+    return rect_;
 }
 
-QRect Board::get_rect()
+QColor Board::get_color() const
 {
-    return rect;
+    return color_;
 }
 
 void Board::move_right()
 {
-    set_pos(10);
+    set_pos(dx);
 }
 
 void Board::move_left()
 {
-    set_pos(-10);
+    set_pos(-dx);
 }
 
 void Board::set_pos(int dx)
 {
-    rect.setX(get_rect().x() + dx);
-    rect.setWidth(rect.width() + dx);
+    rect_.setX(get_rect().x() + dx);
+    rect_.setWidth(rect_.width() + dx);
 }
+

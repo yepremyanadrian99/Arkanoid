@@ -7,10 +7,14 @@
 #include <QPoint>
 #include <QKeyEvent>
 #include <QMouseEvent>
+#include <QThread>
 
-#include "ball.h"
-#include "block.h"
-#include "board.h"
+#include <ball.h>
+#include <block.h>
+#include <board.h>
+#include <map.h>
+
+#include <vector>
 
 namespace Ui {
 class MainWindow;
@@ -28,9 +32,19 @@ public:
     ~MainWindow();
 
 public:
-    Ball* ball;
-    Block* block;
+    QThread* th_move;
     Board* board;
+    Ball* ball;
+    std::vector<Block>* blocks;
+    Map* map;
+
+public:
+    void set_blocks();
+    void connects();
+    void win();
+
+public slots:
+    void new_game();
 
 protected:
     void keyPressEvent(QKeyEvent* e);
